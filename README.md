@@ -1,50 +1,40 @@
 ﻿# Dave + Grant Vibe Playground
 
-A simple static site starter you can host on GitHub Pages.
+A multi-page GitHub Pages mini-site with a password-gated entrance and protected internal routes.
 
-## What is here
+## Site structure
 
-- `index.html` - home page for your playground
-- `styles.css` - shared site styles
-- `projects/hello-world/index.html` - sample mini project
-- `notes/ideas.md` - idea backlog
+- `index.html` - entrance gate (password question)
+- `home.html` - immersive homepage after unlock
+- `dave.html` - Dave dashboard page
+- `grant.html` - Grant dashboard page
+- `assets/css/main.css` - shared visual system and animations
+- `assets/js/main.js` - unlock flow, protected-route checks, lock action, and interactivity
+- `projects/hello-world/index.html` - starter demo project
+- `notes/ideas.md` - shared idea list
 
-## Local preview
+## Password flow
 
-You can double-click `index.html`, or from this folder run:
+- Gate question: `What's my favorite word?`
+- Correct answer: `in`
+- On success, script sets `localStorage['vibe_lab_unlocked'] = 'true'` and redirects to `home.html`
+- `home.html`, `dave.html`, and `grant.html` check this unlock key and redirect to `index.html` if missing
+- `Lock Site` links clear the unlock key and return to `index.html`
 
-```powershell
-python -m http.server 8080
-```
+## Zen media sources
 
-Then open `http://localhost:8080`.
+Homepage hero uses royalty-free Pexels media:
 
-## Publish on GitHub Pages (quick path)
+- Video source: `https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4`
+- Poster/fallback image: `https://images.pexels.com/photos/949194/pexels-photo-949194.jpeg?auto=compress&cs=tinysrgb&w=1600`
 
-1. Create a new GitHub repository (example: `vibe-playground`).
-2. In this folder, run:
+## Deploy / update
 
-```powershell
-git init
-git add .
-git commit -m "Initial playground"
-git branch -M main
-git remote add origin https://github.com/<your-username>/vibe-playground.git
-git push -u origin main
-```
+Upload all files in this repo to the `main` branch.
 
-3. On GitHub, go to `Settings` -> `Pages`.
-4. Under **Build and deployment**, choose:
-   - Source: `Deploy from a branch`
-   - Branch: `main` and `/ (root)`
-5. Save. After ~1-2 minutes, your site will be live at:
+GitHub Pages settings:
+- Source: `Deploy from a branch`
+- Branch: `main`
+- Folder: `/ (root)`
 
-`https://<your-username>.github.io/vibe-playground/`
-
-## Workflow for new projects
-
-1. Create `projects/<project-name>/index.html`
-2. Add a card link in `index.html`
-3. Commit and push
-
-GitHub Pages auto-updates on every push.
+When Pages rebuilds, `index.html` is the public entry point.

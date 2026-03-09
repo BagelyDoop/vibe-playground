@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Dave + Grant Vibe Playground</title>
+  <meta name="description" content="Shared vibe-coding home base for Dave and Grant." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body data-page="protected" class="page-home">
+  <div class="bg-gradient" aria-hidden="true"></div>
+  <header class="top-nav glass">
+    <a class="brand" href="home.html">Vibe Playground</a>
+    <nav>
+      <a href="#choose">Choose</a>
+      <a href="#quote">Current Vibe</a>
+      <a href="dave.html">Dave</a>
+      <a href="grant.html">Grant</a>
+      <a href="#" class="js-lock">Lock Site</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-video-wrap" data-reveal>
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/photos/949194/pexels-photo-949194.jpeg?auto=compress&cs=tinysrgb&w=1600">
+        <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="kicker">Shared Creative Dojo</p>
+        <h1>Welcome to Dave + Grant's Vibe Coding Lab</h1>
+        <p>This is our home base for fun experiments, weird prototypes, and projects that start small but ship fast.</p>
+        <a class="btn btn-primary" href="#choose">Choose Your Playground</a>
+      </div>
+    </section>
+
+    <section id="choose" class="section-shell" data-reveal>
+      <div class="section-head">
+        <h2>Choose Your Playground</h2>
+        <p>The sky is the limit. Pick a lane and build something awesome today.</p>
+      </div>
+      <div class="choice-grid">
+        <a class="choice-card glass spotlight" href="dave.html">
+          <h3>Dave's Playground</h3>
+          <p>Bills and UFC energy. Fast experiments and bold sprints.</p>
+          <span>Enter Dave Zone</span>
+        </a>
+        <a class="choice-card glass spotlight" href="grant.html">
+          <h3>Grant's Playground</h3>
+          <p>Magic deck craft with Golden Knights momentum and smart builds.</p>
+          <span>Enter Grant Zone</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="quote" class="section-shell" data-reveal>
+      <div class="glass quote-panel">
+        <p class="kicker">Current Vibe</p>
+        <blockquote id="zen-quote">Small steps, steady flow, beautiful momentum.</blockquote>
+      </div>
+    </section>
+
+    <section class="section-shell" data-reveal>
+      <div class="tabs glass" data-tabs>
+        <div class="tab-buttons">
+          <button class="tab-button active" data-tab="ritual">Ritual</button>
+          <button class="tab-button" data-tab="focus">Focus</button>
+          <button class="tab-button" data-tab="mission">Mission</button>
+        </div>
+        <div class="tab-panel active" data-panel="ritual">
+          <p>Open the lab. Make one tiny thing. Push before overthinking.</p>
+        </div>
+        <div class="tab-panel" data-panel="focus">
+          <p>Keep it playful, keep it useful, and keep shipping imperfect versions.</p>
+        </div>
+        <div class="tab-panel" data-panel="mission">
+          <p>Build projects that feel fun enough to return to tomorrow.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Built by Dave + Grant for late-night experiments and good chaos.</footer>
+</body>
+</html>
