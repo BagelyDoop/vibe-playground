@@ -1,0 +1,151 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dave + Grant Vibe Playground</title>
+  <meta name="description" content="A shared coding playground for Dave and Grant." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="gate-wrap" id="gate-wrap">
+    <div class="gate-card">
+      <p class="eyebrow">Private Entrance</p>
+      <h1>What's my favorite word?</h1>
+      <p>Enter the answer to unlock the Dave + Grant playground.</p>
+      <form id="gate-form" class="gate-form">
+        <label for="gate-input">Answer</label>
+        <input id="gate-input" name="answer" type="password" autocomplete="off" required />
+        <button class="btn" type="submit">Unlock</button>
+      </form>
+      <p id="gate-error" class="error-msg" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <div id="site-content" class="site-content hidden">
+    <header class="hero">
+      <p class="eyebrow">GitHub Pages Playground</p>
+      <h1>Dave + Grant Vibe Coding Lab</h1>
+      <p class="subhead">This is our playground for vibe-coding fun new projects. The sky is the limit.</p>
+      <nav class="hero-actions">
+        <a class="btn" href="#playgrounds">Jump To Playgrounds</a>
+        <a class="btn btn-secondary" href="#memes">Motivation Memes</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="playgrounds" class="panel">
+        <h2>Choose A Playground</h2>
+        <p>Pick a tab and start building. No pressure. Just ship stuff.</p>
+        <div class="tab-row" role="tablist" aria-label="Playground Tabs">
+          <button id="tab-dave" class="tab-btn active" data-target="pane-dave" role="tab" aria-selected="true">Dave</button>
+          <button id="tab-grant" class="tab-btn" data-target="pane-grant" role="tab" aria-selected="false">Grant</button>
+        </div>
+
+        <section id="pane-dave" class="tab-pane active" role="tabpanel" aria-labelledby="tab-dave">
+          <h3>Dave's Playground</h3>
+          <p>Bills energy, UFC intensity, and fast experiments.</p>
+          <div class="grid">
+            <article class="card">
+              <h4>Buffalo Bills Build Zone</h4>
+              <p>Idea: Build a game-day checklist app with scores, snacks, and superstition tracking.</p>
+              <a href="projects/hello-world/index.html">Open starter project</a>
+            </article>
+            <article class="card">
+              <h4>UFC Fight-Night Lab</h4>
+              <p>Idea: Create a round timer + prediction tracker for every fight card.</p>
+              <a href="notes/ideas.md">Drop this in ideas</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="pane-grant" class="tab-pane" role="tabpanel" aria-labelledby="tab-grant">
+          <h3>Grant's Playground</h3>
+          <p>Magic deck vibes and Golden Knights hustle.</p>
+          <div class="grid">
+            <article class="card">
+              <h4>Magic Deck Toolkit</h4>
+              <p>Idea: Build a card combo finder and mana curve visualizer for favorite decks.</p>
+              <a href="projects/hello-world/index.html">Open starter project</a>
+            </article>
+            <article class="card">
+              <h4>Golden Knights Tracker</h4>
+              <p>Idea: Build a page that tracks game dates, results, and season momentum.</p>
+              <a href="notes/ideas.md">Drop this in ideas</a>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section id="memes" class="panel">
+        <h2>Funny Motivational Memes</h2>
+        <div class="grid">
+          <article class="card meme-card">
+            <h3>Drake Meme, Coding Edition</h3>
+            <p>Not this: Overthinking architecture for 4 hours.</p>
+            <p>This: Ship ugly v1, improve tomorrow.</p>
+          </article>
+          <article class="card meme-card">
+            <h3>Distracted Boyfriend Meme</h3>
+            <p>Me: Trying to focus on one feature.</p>
+            <p>Also me: "What if we add AI, leaderboards, and a mini game?"</p>
+          </article>
+          <article class="card meme-card">
+            <h3>Two Buttons Meme</h3>
+            <p>Button 1: "Refactor everything."</p>
+            <p>Button 2: "Push to GitHub and celebrate progress."</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Made by Dave + Grant. Built for learning and shipping.</small>
+    </footer>
+  </div>
+
+  <script>
+    const gateForm = document.getElementById("gate-form");
+    const gateInput = document.getElementById("gate-input");
+    const gateWrap = document.getElementById("gate-wrap");
+    const gateError = document.getElementById("gate-error");
+    const siteContent = document.getElementById("site-content");
+
+    gateForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const answer = gateInput.value.trim().toLowerCase();
+
+      if (answer === "in") {
+        gateWrap.classList.add("hidden");
+        siteContent.classList.remove("hidden");
+        gateError.textContent = "";
+      } else {
+        gateError.textContent = "Nope. Try again.";
+        gateInput.select();
+      }
+    });
+
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+
+    tabButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const targetId = button.getAttribute("data-target");
+
+        tabButtons.forEach(function (btn) {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-selected", "false");
+        });
+
+        tabPanes.forEach(function (pane) {
+          pane.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        button.setAttribute("aria-selected", "true");
+        document.getElementById(targetId).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
